@@ -12,8 +12,9 @@
 <?php 
 
 require_once "mapper.php";
-
-	generer();
+	
+	$aleatoire = new Mapper();
+	exit;
 ?>
 </body>
 </html>
