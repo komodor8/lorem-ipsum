@@ -2,18 +2,15 @@
 
 require_once "Generateur.php";
 
-class Mapper {
+public function __construct(){
+	$this->mapper = new Generateur ();
 
-public function __construct() {
-	$this->mapper = new Generateur();
 }
-
-
 
 public function generer() {
 		$f = fopen("Lorem.csv", "r");
-		$f = explode(";",$f);
-		/*$mot = "";
+		/*$f = explode(";",$f);
+		$mot = "";
 		$LoremIpsum = "";
 		while ($ligne=fgetcsv($f, 0, ";")){
 			$LoremIpsum = new Generateur (10, 10, 10, 10 );
@@ -22,4 +19,4 @@ public function generer() {
 		return $LoremIpsum;*/
 	}
 
-}
+

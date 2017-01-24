@@ -2,18 +2,7 @@
 
 
 class Generateur {
-	private $mot;
-
-	public function __construct($array){
-		$this->mot = $array[0];
-
-	}
-
-	/*public function getMot () {
-		
-	}*/
-}
-
+	private 
 
 
 /*	private $paragraphes;
