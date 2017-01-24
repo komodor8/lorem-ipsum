@@ -11,9 +11,28 @@
 
 <?php 
 
-require_once "mapper.php";
+$lorem = [];
+	$f = fopen("Lorem.csv","r");
 
-	generer();
+//ligne 1= Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla diam urna, semper eget elit sit amet, pulvinar venenatis lorem. Suspendisse purus 
+	while($ligne = fgetcsv($f)){
+		$lorem[] = explode(" ", $ligne[0]);
+	}
+	echo "<br>";
+	echo "<br>";
+
+            $phraseGen = "";
+
+           for ($i=0; $i < rand(1,3) ; $i++) { 
+	           	$phraseAleatoire = $lorem[rand(0, count($lorem)-1)];
+	            $motAleatoire = $phraseAleatoire[rand(0, count($phraseAleatoire)-1)];
+           		$phraseGen .= " ". $motAleatoire; 
+           }
+           echo $phraseGen;
+            
+
+
+
 ?>
 </body>
 </html>
