@@ -5,12 +5,13 @@
 	<title>Generateur de Lorem Ipsum</title>
 </head>
 <body>
-<p> Comment generer un lorem ipsum ? </p>
+<p> Lorem ipsum </p>
 
 <form>
-<input type = "submit" name="nbMot" value="1"/>
-<input type = "submit" name="nbMot" value="5"/>
-<input type = "submit" name="nbMot" value="10"/>
+<input type = "text" name="nbParagraphe" placeholder="combien de paragraphe ?" />
+<input type = "text" name="nbMot" placeholder="combien de mot ?"/>
+<input type = "text" name="theme" placeholder="votre thème"/>
+<input type="submit" name="envoyer">
 </form>
 
 
@@ -18,10 +19,11 @@
 
 require_once "classes/controller.php";
 
-$c = new LoremController ();
-echo $c->genererParagrapheAction ($_GET["nbMot"]);
-	
 
+$c = new LoremController ();
+if(isset($_GET["nbParagraphe"]) && isset($_GET["nbMot"])) {
+	echo $c->genererLoremAction($_GET["nbParagraphe"], $_GET["nbMot"]);
+} 
 ?>
 </body>
 </html>

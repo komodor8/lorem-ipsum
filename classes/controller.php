@@ -10,9 +10,10 @@ class LoremController {
 		$this->mapper = new LoremMapper();
 	}
 
-	public function genererParagrapheAction () {
-		return $this->mapper->genererParagraphe($_GET["nbMot"]);
+	public function genererLoremAction ($nbParagraphe, $nbMot) {
+		return $this->mapper->genererLorem($nbParagraphe, $nbMot);
 	} 
+
 
 
 

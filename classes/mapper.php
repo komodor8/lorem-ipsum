@@ -13,23 +13,27 @@ class LoremMapper {
 		}
 	}
 
-
-	public function genererParagraphe($nombreMot) {
-
-	$phraseGen = "";
-	$paragrapheGen = "";
-	$longueurLorem = count($this->Lorem);
-
-	// on définit le nombre de paragraphe
 	
-		for ($i=0; $i < $nombreMot ; $i++) { 
-	   	$phraseAleatoire = $this->Lorem[rand(0, $longueurLorem -1)];
-	    $motAleatoire = $phraseAleatoire[rand(0, count($phraseAleatoire)-1)];
-		$phraseGen .= $motAleatoire ." ";
+
+	public function genererLorem($nbParagraphe, $nbMot) {
+		$paragrapheGen = "";
+		$longueurLorem = count($this->Lorem);
+
 		
-		}
-	echo $phraseGen;
+		for ($j=0; $j < $nbParagraphe; $j++) { 
+		$phraseGen = "";
+
+		   	for ($i=0; $i < $nbMot ; $i++) { 
+			   	$phraseAleatoire = $this->Lorem[rand(0, $longueurLorem -1)];
+			    $motAleatoire = $phraseAleatoire[rand(0, count($phraseAleatoire)-1)];
+				$phraseGen .= $motAleatoire ." ";
+			}//fin boucle du nombre de mot
+		$paragrapheGen .= ucfirst(rtrim($phraseGen)).".<br><br>";
+		}//fin boucle du nombre de paragraphe
+	echo $paragrapheGen;
 	}
+
+
 	
 	//fin de la class
 }
