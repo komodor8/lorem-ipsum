@@ -4,10 +4,10 @@ class LoremMapper {
 
 	private $Lorem;
 
-	public function __construct () {
+	public function __construct ($theme) {
 		//je veux que mon Lorem soit egale à un tableau qui contient le fichier csv et chaque mot est une string dans une case
 		$this->Lorem = [];
-		$f = fopen("Lorem.csv","r");
+		$f = fopen("$theme.csv","r");
 		while($ligne = fgetcsv($f)){
 			$this->Lorem[] = explode(" ", $ligne[0]);
 		}

@@ -5,12 +5,20 @@
 	<title>Generateur de Lorem Ipsum</title>
 </head>
 <body>
-<p> Lorem ipsum </p>
+<h1> Lorem ipsum </h1>
 
 <form>
-<input type = "text" name="nbParagraphe" placeholder="combien de paragraphe ?" />
-<input type = "text" name="nbMot" placeholder="combien de mot ?"/>
-<input type = "text" name="theme" placeholder="votre thème"/>
+<label for="nbParagraphe">Combien de paragraphe souhaitez-vous ?</label> :<br><input type = "number" min="1" max="10" name="nbParagraphe" /> <br><br>
+<label for="nbMot">Et le nombre de mots dans votre paragraphe ?</label> :<br><input type = "number" min="1" max="150" name="nbMot" />
+ <p>
+   <label for="pays">Choisissez votre thème ?</label><br />
+   <select name="theme" id="theme">
+		<option value="theme" disabled> thème </option>
+		<option value="Lorem">Lorem</option>
+		<option value="Zombie">Zombie</option>
+		<option value="Foot">Foot</option>
+   </select>
+</p>
 <input type="submit" name="envoyer">
 </form>
 
@@ -19,11 +27,12 @@
 
 require_once "classes/controller.php";
 
-
-$c = new LoremController ();
+$c = new LoremController ($_GET["theme"]);
 if(isset($_GET["nbParagraphe"]) && isset($_GET["nbMot"])) {
 	echo $c->genererLoremAction($_GET["nbParagraphe"], $_GET["nbMot"]);
-} 
+}
+
+
 ?>
 </body>
 </html>

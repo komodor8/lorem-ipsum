@@ -6,8 +6,8 @@ require_once "mapper.php";
 class LoremController {
 	private $mapper;
 
-	function __construct() {
-		$this->mapper = new LoremMapper();
+	function __construct($theme) {
+		$this->mapper = new LoremMapper($theme);
 	}
 
 	public function genererLoremAction ($nbParagraphe, $nbMot) {
