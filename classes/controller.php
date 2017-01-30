@@ -14,6 +14,10 @@ class LoremController {
 		return $this->mapper->genererLorem($nbParagraphe, $nbMot);
 	} 
 
+	public function genererThemeAction ($nom, $auteur, $contenuTheme) {
+		return $this->mapper->genererTheme($nom, $auteur, $contenuTheme);
+	}
+
 
 
 

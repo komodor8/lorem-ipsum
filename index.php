@@ -19,7 +19,14 @@
 		<option value="Foot">Foot</option>
    </select>
 </p>
-<input type="submit" name="envoyer">
+<h2>Créez votre propre thème.</h2>
+<input type="text" name="nom" placeholder="nom du theme"/><br><br>
+<input type="text" name="auteur" placeholder="auteur du theme"/><br><br>
+<textarea type="text" name="newText" row="40" cols="50"></textarea>
+
+<br><br>
+<input type="submit" name="envoyer"/>
+<br><br>
 </form>
 
 
@@ -27,12 +34,15 @@
 
 require_once "classes/controller.php";
 
-$c = new LoremController ($_GET["theme"]);
-if(isset($_GET["nbParagraphe"]) && isset($_GET["nbMot"])) {
+if(isset($_GET["nbParagraphe"]) && isset($_GET["nbMot"]) && isset($_GET["theme"])){
+	$c = new LoremController ($_GET["theme"]);
 	echo $c->genererLoremAction($_GET["nbParagraphe"], $_GET["nbMot"]);
 }
 
-
-?>
+if (isset($_GET["nom"]) && isset($_GET["auteur"]) && isset($_GET["newText"])){
+	$c = new LoremController($_GET["nom"]);
+	$c->genererThemeAction($_GET["nom"], $_GET["auteur"], $_GET["newText"]);
+	
+}?>
 </body>
 </html>
